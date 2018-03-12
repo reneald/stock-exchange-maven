@@ -23,9 +23,36 @@
                 <artifactId>guava</artifactId>
                 <version>24.0-jre</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>1.10.19</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.7</version>
+            </dependency>
+
             <dependency>
                 <groupId>be.reneald</groupId>
-                <artifactId>domain-module</artifactId>
+                <artifactId>domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>be.reneald</groupId>
+                <artifactId>interfaces</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
