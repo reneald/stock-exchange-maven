@@ -8,7 +8,7 @@ public class Stock {
     private String stockName;
     private StockPrice stockPrice;
 
-    public Stock(String stockId, String stockName, StockPrice stockPrice) {
+    Stock(String stockId, String stockName, StockPrice stockPrice) {
         this.stockId = stockId;
         this.stockName = stockName;
         this.stockPrice = stockPrice;
@@ -16,6 +16,18 @@ public class Stock {
 
     public void adjustStockPrice(BigDecimal newPrice) {
         this.stockPrice.setPrice(newPrice);
+    }
+
+    public String getStockName() {
+        return stockName;
+    }
+
+    public String getStockId() {
+        return stockId;
+    }
+
+    public StockPrice getStockPrice() {
+        return stockPrice;
     }
 
     @Override

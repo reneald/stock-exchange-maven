@@ -2,14 +2,18 @@ package be.reneald.service;
 
 import be.reneald.domain.Stock;
 import be.reneald.domain.StockRepository;
+import be.reneald.interfaces.ExternalStockInformationService;
 
 public class StockService {
-    public Stock getStock(String stockId) {
+    public static Stock getStock(String stockId) {
+        Stock stock;
         try {
-            StockRepository.getStockInformation(stockId);
+            stock = StockRepository.getStockInformation(stockId);
         } catch (Exception ex) {
-
+            //TODO implement catch block
         }
-
+        //TODO implement conversion EUR to other currencies
+        stock.adjustStockPrice(ExternalStockInformationService.getPriceInEuroForStock(stock.getStockName()));
+        return stock;
     }
 }

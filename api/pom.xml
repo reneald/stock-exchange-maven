@@ -13,4 +13,15 @@
     <artifactId>api</artifactId>
     <version>${project-version}</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>be.reneald</groupId>
+            <artifactId>domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>be.reneald</groupId>
+            <artifactId>service</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
