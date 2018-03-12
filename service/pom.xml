@@ -18,6 +18,10 @@
             <groupId>be.reneald</groupId>
             <artifactId>interfaces</artifactId>
         </dependency>
+        <dependency>
+            <groupId>be.reneald</groupId>
+            <artifactId>domain</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
