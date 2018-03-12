@@ -5,7 +5,13 @@ import be.reneald.api.StockDto;
 import be.reneald.service.StockService;
 
 public class StockExchangeController {
+    private StockService stockService;
+
+    public StockExchangeController(StockService stockService) {
+        this.stockService = stockService;
+    }
+
     StockDto getStock(String stockId) {
-        return new StockDto(StockService.getStock(stockId).getStockId(), StockService.getStock(stockId).getStockName(), StockService.getStock(stockId).getStockPrice());
+        return new StockDto(stockService.getStock(stockId).getStockId(), stockService.getStock(stockId).getStockName(), stockService.getStock(stockId).getStockPrice());
     }
 }

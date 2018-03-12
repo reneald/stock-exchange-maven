@@ -1,19 +1,32 @@
 package be.reneald.service;
 
 import be.reneald.domain.Stock;
+import be.reneald.domain.StockCurrency;
+import be.reneald.domain.StockPrice;
 import be.reneald.domain.StockRepository;
 import be.reneald.interfaces.ExternalStockInformationService;
 
+import java.math.BigDecimal;
+
 public class StockService {
-    public static Stock getStock(String stockId) {
+    private ExternalStockInformationService externalStockInformationService;
+
+    public StockService(ExternalStockInformationService externalStockInformationService) {
+        this.externalStockInformationService = externalStockInformationService;
+    }
+
+    public Stock getStock(String stockId) {
         Stock stock;
         try {
             stock = StockRepository.getStockInformation(stockId);
         } catch (Exception ex) {
-            //TODO implement catch block
+            throw new IllegalArgumentException("Stock not found!");
         }
-        //TODO implement conversion EUR to other currencies
-        stock.adjustStockPrice(ExternalStockInformationService.getPriceInEuroForStock(stock.getStockName()));
+        stock.adjustStockPrice(getPriceInCorrectCurrency(stock));
         return stock;
+    }
+
+    private BigDecimal getPriceInCorrectCurrency(Stock stock) {
+        return externalStockInformationService.getPriceInEuroForStock(stock.getStockId()).multiply(new BigDecimal(stock.getStockCurrency().getConversionRate()));
     }
 }

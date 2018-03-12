@@ -67,7 +67,7 @@
             <dependency>
                 <groupId>be.reneald</groupId>
                 <artifactId>service</artifactId>
-                <version>${project-version}</version>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -93,7 +93,7 @@
                             <descriptorRef>jar-with-dependencies</descriptorRef>
                             <archive>
                                 <manifest>
-                                    <mainClass>be.reneald.api.MyAPI</mainClass>
+                                    <mainClass>be.reneald.api.StockExchangeController</mainClass>
                                 </manifest>
                             </archive>
                         </descriptorRefs>

@@ -14,4 +14,12 @@ public class StockPrice {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
+    public StockCurrency getCurrency() {
+        return currency;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
 }
