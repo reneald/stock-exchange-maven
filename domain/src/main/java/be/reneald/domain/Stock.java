@@ -1,6 +1,7 @@
 package be.reneald.domain;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Stock {
     private String stockId;
@@ -15,5 +16,20 @@ public class Stock {
 
     public void adjustStockPrice(BigDecimal newPrice) {
         this.stockPrice.setPrice(newPrice);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Stock stock = (Stock) o;
+        return Objects.equals(stockId, stock.stockId) &&
+                Objects.equals(stockName, stock.stockName);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(stockId, stockName);
     }
 }
