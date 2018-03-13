@@ -2,7 +2,6 @@ package be.reneald.service;
 
 import be.reneald.interfaces.ExternalStockInformationService;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import java.math.BigDecimal;
 
